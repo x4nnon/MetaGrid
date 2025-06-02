@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 """
 Created on Fri Nov  5 13:57:14 2021
 
@@ -32,9 +32,9 @@ def random_domain_creation(bbs, size=[70,70], style="grid", seed=None, rng=None)
     "creates a random domain made from the building blocks - size is a vector which determins the shape of the maze."
     if rng is None:
         if seed:
-            rng = np.random.Random(seed)
+            rng = np.random.randint(seed=seed)
         else:
-            rng = np.random.Random()
+            rng = np.random.randint()
     
     domain = 1*np.ones([size[0]+2,size[1]+2]) #initiation with a border of 1's 
     

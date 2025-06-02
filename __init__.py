@@ -6,14 +6,20 @@ Created on Wed Apr 12 13:38:51 2023
 @author: x4nno
 """
 
-import sys, os
+print("pre_imports")
 
 from gymnasium.envs.registration import register 
-
 from .metagrid_gymnasium_wrapper import MetaGridEnv
 
-sys.path.append('/home/x4nno/Documents/PhD/MetaGridEnv/MetaGridEnv')
+print("pre_register")
 
-register( id="MetaGridEnv/metagrid-v0",
-         entry_point="metagrid_gymnasium_wrapper:MetaGridEnv",
-         max_episode_steps=500,)
+# Register the environment
+# The id should be in the format "namespace/name-version"
+# The entry_point should be "package_name.module_name:ClassName"
+register(
+    id="MetaGridEnv/metagrid-v0", # This ID seems fine.
+    entry_point="MetaGridEnv.metagrid_gymnasium_wrapper:MetaGridEnv", # Corrected
+    max_episode_steps=500,
+)
+
+print("MetaGridEnv/metagrid-v0 registered with Gymnasium via __init__.py") # For debugging
